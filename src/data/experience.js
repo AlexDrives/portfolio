@@ -1,6 +1,6 @@
 // Replace these placeholders when the individual experience pages are published.
-export const EXPERIENCE_ABB_URL = '#'
-export const EXPERIENCE_COCREATE_URL = '#'
+export const EXPERIENCE_ABB_URL = '#experience/abb'
+export const EXPERIENCE_COCREATE_URL = '#experience/cocreate'
 
 export const experience = [
   { title: 'Environment Reasoning R&D', organization: 'ABB Robotics', date: '2026 — Present', tags: ['Embodied AI', 'Environment Reasoning', 'Task Planning', 'MLLM'], description: 'Exploring environment reasoning, task planning, simulation agents, and language-driven interaction for embodied intelligence.', url: EXPERIENCE_ABB_URL },

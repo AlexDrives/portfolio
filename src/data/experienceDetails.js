@@ -1,0 +1,73 @@
+export const experienceDetails = {
+  abb: {
+    eyebrow: 'Experience / 01',
+    title: 'Environment Reasoning R&D',
+    organization: 'ABB Robotics',
+    date: '2026 — Present',
+    lead: 'From a natural-language instruction to a terminal state that can be inspected, executed, and challenged.',
+    summary: 'This internship explores environment understanding and task planning for embodied intelligence. The central question is not only what an agent should do next, but what the world should look like when the task is complete.',
+    tags: ['Embodied AI', 'Environment Reasoning', 'Task Planning', 'MLLM'],
+    sections: [
+      { label: '01 / Problem', title: 'Reason about the state after the action.', body: 'Instructions such as “put the tube in the rack” leave geometry, alignment, depth, stability, and object relationships implicit. The work studies how to recover those constraints from language and an initial simulated scene, then express them as a terminal specification rather than an unconstrained action guess.' },
+      { label: '02 / Research thread', title: 'Perception provides candidates; structure makes them testable.', body: 'A focused review of UAD, Affordance-R1, AFUN, V-JEPA 2, RLT, PointWorld, and Dream2Flow helped separate the roles of affordance grounding, contact reasoning, future prediction, and online adaptation. These methods inform candidate regions, motion, or consequences; the engineering gap is an explicit, verifiable multi-object terminal state.' },
+      { label: '03 / System', title: 'AssemWorld as an intermediate contract.', body: 'AssemWorld borrows the part / port / mate / verification vocabulary of assembly systems and adapts it to physical simulation. Language selects objects and relations within a restricted catalogue; deterministic code enumerates compatible ports, compiles a terminal-state YAML, resolves dependencies, and hands execution to OmniGibson.' },
+      { label: '04 / Validation', title: 'A plan is only useful when failure is legible.', body: 'The pipeline separates an operational terminal state from the evolved state after gravity, collision, and joint constraints act. Rollout observations and geometry checks are used to diagnose whether a failure comes from object grounding, relation choice, port alignment, collision, or stability.' },
+    ],
+    steps: [
+      ['Language', 'Task instruction and known initial scene'],
+      ['Specification', 'Objects, ports, relations, dependencies, checks'],
+      ['Resolution', 'Port compatibility and pose / joint solving'],
+      ['Rollout', 'OmniGibson execution and physical evolution'],
+      ['Diagnosis', 'Geometry, physics, and semantic verification'],
+    ],
+    evidence: [
+      'Agent V1 constrained language to existing assets and the on / seat / insert / joint relation set.',
+      'The recorded coffee task produced on + seat relations; the tube task selected a complementary insert candidate.',
+      'The reports record structured validation snapshots of 11 passed tests for the Agent V1 stage and 17 passed for the depth-calibration loop.',
+    ],
+    boundaries: [
+      'A kinematic stop is not sufficient evidence of a successful insertion; depth, alignment, collision, and rollout checks still need to agree.',
+      'Capability-compatible ports can still be semantically wrong, so support regions and semantic tags remain important next steps.',
+      'The current agent does not perform open-world perception, automatic port annotation, or arbitrary new-object grounding.',
+    ],
+    media: [
+      { src: '/experience/abb/s01_terminal_rollout.png', alt: 'AssemWorld terminal rollout frame' },
+      { src: '/experience/abb/s02_affordance_r1_reasoning.png', alt: 'Affordance reasoning research frame' },
+      { src: '/experience/abb/s05_agent_restricted_pipeline.png', alt: 'Restricted agent pipeline diagram' },
+      { src: '/experience/abb/s06_execution_rollout.png', alt: 'Simulation execution rollout frame' },
+    ],
+  },
+  cocreate: {
+    eyebrow: 'Experience / 02',
+    title: 'AI Algorithm Engineering',
+    organization: 'Co-Creative Data Technology',
+    date: '2026 / 04 — 2026 / 06',
+    lead: 'Training, adapting, and stress-testing visual navigation for a four-legged robot in simulation.',
+    summary: 'The work focused on making a reinforcement-learning navigation policy usable on a Unitree Go2 workflow: from Isaac Sim training and evaluation, through ROS2 deployment, to identifying the gaps that appear between simulation and reality.',
+    tags: ['Isaac Sim', 'Reinforcement Learning', 'Unitree Go2', 'ROS2'],
+    sections: [
+      { label: '01 / Platform', title: 'A simulation-first navigation loop.', body: 'NVIDIA Isaac Sim provided the environment for training and evaluating visual navigation policies for the Unitree Go2 quadruped. The work covered the full loop from policy behavior in simulation to the interfaces needed for deployment and testing.' },
+      { label: '02 / Adaptation', title: 'Making NavRL meet a different body.', body: 'NavRL was adapted to the Go2 platform while addressing heading alignment, dynamic obstacle handling, and radar parameter configuration. These details determine whether a policy behaves like a navigation system or merely produces plausible motion in a narrow scene.' },
+      { label: '03 / Deployment', title: 'Simulation results are not the finish line.', body: 'ROS2 deployment and simulation-to-reality tests were used to inspect failure modes rather than hide them. Observations included crab-walk behavior and collisions in dense obstacle layouts, turning the gap between policy intent and robot behavior into an engineering checklist.' },
+      { label: '04 / Data', title: 'Video as a source for navigation data.', body: 'The internship also explored batch processing of ego-centric video with VGGT, with the goal of building data that can support robot navigation training. This direction connects scene understanding, geometry, and policy learning without claiming a finished dataset or production system.' },
+    ],
+    steps: [
+      ['Scene', 'Isaac Sim environments and visual observations'],
+      ['Policy', 'RL navigation training and evaluation'],
+      ['Adaptation', 'Go2 body, heading, radar, and obstacle handling'],
+      ['Bridge', 'ROS2 deployment and sim-to-real tests'],
+      ['Feedback', 'Failure analysis for the next iteration'],
+    ],
+    evidence: [
+      'The resume records training and evaluation of reinforcement-learning-based visual navigation for Unitree Go2 in NVIDIA Isaac Sim.',
+      'The documented adaptation work includes heading alignment, dynamic obstacles, and radar parameter configuration for NavRL.',
+      'The resume records ROS2 deployment, simulation-to-reality testing, and analysis of crab-walk and dense-obstacle collision failures.',
+    ],
+    boundaries: [
+      'The page describes an engineering internship and documented experiments, not a claim of a universally robust navigation policy.',
+      'VGGT video processing is presented as a data-construction direction, not as a completed public dataset.',
+      'Failure modes are retained as evidence for iteration rather than reframed as successes.',
+    ],
+    media: [],
+  },
+}
