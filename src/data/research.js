@@ -1,0 +1,6 @@
+export const research = [
+  { number: '01', title: '3D Vision & Affordance Reasoning', description: 'Explore how 3D visual understanding can support reasoning about objects, spatial relationships, affordances, and possible actions in physical environments.', flow: 'Scene → Geometry → Objects → Affordances → Actions' },
+  { number: '02', title: 'Simulation LLM Agents', description: 'Explore LLM-based agents that understand, reason about, and interact with simulated environments—interpreting tasks, decomposing them, planning, using tools, and navigating constraints.', flow: 'Language → Environment → Reasoning → Planning → Interaction' },
+  { number: '03', title: 'Natural-Language Simulation Scene Editing', description: 'Explore how natural-language instructions can become precise modifications of simulated environments, from placement and manipulation to semantic editing and spatial constraints.', flow: 'Language → Semantics → Constraints → Scene → Task' },
+  { number: '04', title: 'World Models & Post-Training', description: 'Explore how world models can become more useful for embodied agents through post-training, interaction, reasoning, and task-oriented learning.', flow: 'Predict → Reason → Plan → Act' },
+]

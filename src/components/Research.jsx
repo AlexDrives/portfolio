@@ -1,0 +1,4 @@
+import { motion } from 'motion/react'
+import { research } from '../data/research'
+const view = { once: true, amount: .2 }
+export default function Research() { return <section id="research" className="section research-section"><motion.div className="section-intro" initial={{ y: 24, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={view} transition={{ duration: .8 }}><p className="section-kicker">Research / 01</p><h2>Understanding and building agents for physical worlds.</h2></motion.div><div className="research-grid">{research.map((item, i) => <motion.article className="research-card" key={item.number} initial={{ y: 24, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={view} transition={{ duration: .75, delay: i * .08 }}><span>{item.number}</span><h3>{item.title}</h3><p>{item.description}</p><div>{item.flow}</div></motion.article>)}</div></section> }
