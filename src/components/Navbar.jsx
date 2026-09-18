@@ -8,25 +8,27 @@ function Mark() {
 }
 function GridIcon() { return <svg viewBox="0 0 18 18" className="grid-icon" aria-hidden="true">{[[4,4],[14,4],[4,14],[14,14]].map(([cx,cy]) => <circle key={`${cx}${cy}`} cx={cx} cy={cy} r="1.8" />)}</svg> }
 
-export default function Navbar({ menuOpen, setMenuOpen, onHome }) {
+export default function Navbar({ menuOpen, setMenuOpen, onHome, language, setLanguage, t }) {
+  const links = [['home', t.nav.home], ['research', t.nav.research], ['projects', t.nav.projects], ['experience', t.nav.experience], ['about', t.nav.about], ['contact', t.nav.contact]]
   const go = (id) => { setMenuOpen(false); if (id === 'home' && onHome) return onHome(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
   return <>
     <motion.header className="navbar" initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .8, ease: [0.16, 1, 0.3, 1] }}>
       <div className="nav-left">
-        <button className="identity" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to home"><Mark /><span>Junhao Liu</span></button>
-        <div className="research-pill"><span>Embodied AI</span><i /><span>3D Vision</span></div>
+        <button className="identity" onClick={onHome} aria-label={t.nav.home}><Mark /><span>{t.nav.identity}</span></button>
+        <div className="research-pill"><span>{language === 'zh' ? '具身智能' : 'Embodied AI'}</span><i /><span>{language === 'zh' ? '三维视觉' : '3D Vision'}</span></div>
       </div>
       <div className="nav-right">
-        <button className="system-pill" onClick={() => go('research')}><b><GridIcon /></b><span>Simulation Agents</span></button>
-        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}><b><Plus size={12} strokeWidth={3} /></b><span>Menu</span></button>
+        <button className="system-pill" onClick={() => go('research')}><b><GridIcon /></b><span>{t.nav.system}</span></button>
+        <div className="language-switcher" role="group" aria-label={t.switchLabel}><button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button><span>/</span><button className={language === 'zh' ? 'active' : ''} onClick={() => setLanguage('zh')}>中</button></div>
+        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}><b><Plus size={12} strokeWidth={3} /></b><span>{t.nav.menu}</span></button>
       </div>
     </motion.header>
     <AnimatePresence>
       {menuOpen && <motion.nav className="menu-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .25 }}>
         <div className="overlay-bg" onClick={() => setMenuOpen(false)} />
         <motion.div className="menu-panel" initial={{ y: -12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -12, opacity: 0 }} transition={{ duration: .35, ease: [0.16, 1, 0.3, 1] }}>
-          <span className="menu-eyebrow">Navigate</span>
-          {links.map((link, index) => <button key={link} onClick={() => go(link.toLowerCase())}><em>0{index + 1}</em>{link}<span>↘</span></button>)}
+          <span className="menu-eyebrow">{t.nav.navigate}</span>
+          {links.map(([id, label], index) => <button key={id} onClick={() => go(id)}><em>0{index + 1}</em>{label}<span>↘</span></button>)}
         </motion.div>
       </motion.nav>}
     </AnimatePresence>
