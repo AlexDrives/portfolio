@@ -1,15 +1,13 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { Plus } from 'lucide-react'
 
-const links = ['Home', 'Research', 'Projects', 'Experience', 'About', 'Contact']
-
 function Mark() {
   return <svg className="mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M7 7v17c0 3 2 5 5 5 4 0 7-3 7-8V7" /><path d="M17 29 29 7" /><path d="M22 7h7v7" /><circle cx="29" cy="27" r="2" /></svg>
 }
 function GridIcon() { return <svg viewBox="0 0 18 18" className="grid-icon" aria-hidden="true">{[[4,4],[14,4],[4,14],[14,14]].map(([cx,cy]) => <circle key={`${cx}${cy}`} cx={cx} cy={cy} r="1.8" />)}</svg> }
 
 export default function Navbar({ menuOpen, setMenuOpen, onHome, language, setLanguage, t }) {
-  const links = [['home', t.nav.home], ['research', t.nav.research], ['projects', t.nav.projects], ['experience', t.nav.experience], ['about', t.nav.about], ['contact', t.nav.contact]]
+  const links = [['home', t.nav.home], ['research', t.nav.research], ['experience', t.nav.experience], ['projects', t.nav.projects], ['about', t.nav.about], ['contact', t.nav.contact]]
   const go = (id) => { setMenuOpen(false); if (id === 'home' && onHome) return onHome(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
   return <>
     <motion.header className="navbar" initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .8, ease: [0.16, 1, 0.3, 1] }}>

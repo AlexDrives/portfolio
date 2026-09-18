@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Research from './components/Research'
@@ -20,25 +20,42 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'en')
   const [route, setRoute] = useState(currentRoute)
+  const previousRoute = useRef(route)
   useEffect(() => { const onHashChange = () => setRoute(currentRoute()); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
   useEffect(() => { localStorage.setItem('portfolio-language', language); document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'; document.title = language === 'zh' ? '刘俊豪 — 具身智能' : 'Junhao Liu — Embodied AI' }, [language])
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
     return () => { window.history.scrollRestoration = 'auto' }
   }, [])
+  const restoreExperiencePosition = () => {
+    const savedPosition = Number(sessionStorage.getItem('portfolio-return-scroll') || 0)
+    sessionStorage.removeItem('portfolio-return-scroll')
+    sessionStorage.removeItem('portfolio-return-pending')
+    window.scrollTo({ top: savedPosition, behavior: 'auto' })
+  }
   useEffect(() => {
-    if (route) requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }))
+    const cameFromDetail = previousRoute.current && !route
+    previousRoute.current = route
+    if (route) requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }))
+    if (cameFromDetail && sessionStorage.getItem('portfolio-return-pending') === 'true') requestAnimationFrame(restoreExperiencePosition)
   }, [route])
+  const openExperience = () => {
+    sessionStorage.setItem('portfolio-return-scroll', String(window.scrollY))
+    sessionStorage.setItem('portfolio-return-pending', 'true')
+  }
   const goHome = ({ restorePosition = false } = {}) => {
     if (window.location.hash) window.location.hash = ''
     if (window.location.pathname !== '/') window.history.pushState({}, '', '/')
     setRoute(null)
-    const savedPosition = Number(sessionStorage.getItem('portfolio-return-scroll') || 0)
-    sessionStorage.removeItem('portfolio-return-scroll')
-    requestAnimationFrame(() => window.scrollTo({ top: restorePosition ? savedPosition : 0, behavior: 'instant' }))
+    if (restorePosition) sessionStorage.setItem('portfolio-return-pending', 'true')
+    else {
+      sessionStorage.removeItem('portfolio-return-scroll')
+      sessionStorage.removeItem('portfolio-return-pending')
+      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }))
+    }
   }
   const t = localized(language)
   const changeLanguage = (next) => setLanguage(next)
   if (route) return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><ExperienceDetail slug={route} onHome={goHome} t={t} /></>
-  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} /><Projects t={t} /><About t={t} /></main><Contact t={t} /></>
+  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} /></>
 }
