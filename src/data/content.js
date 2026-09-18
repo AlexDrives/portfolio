@@ -41,7 +41,7 @@ export const content = {
         { title: 'Answer Sheet Recognition', date: '2025 / 12 — 2026 / 01', tags: ['Computer Vision', 'OpenCV', 'Geometric Vision'], description: 'Developed OpenCV preprocessing, geometric correction, contour analysis, and perspective transformation for automated grading.', url: 'https://github.com/AlexDrives/answer-sheet-recognition-without-neural-network' },
       ],
     },
-    about: { kicker: 'About / 04', heading: 'I am a student at Shanghai Jiao Tong University working at the intersection of AI, robotics, and intelligent perception.', body: 'My interests center on 3D vision, affordance reasoning, simulation agents, and world models.', school: 'Shanghai Jiao Tong University', major: 'Intelligent Perception Engineering', expected: 'Expected 2027', gpa: 'GPA 3.5 / 4.3', education: 'Education' },
+    about: { kicker: 'About / 04', heading: 'I am a student at Shanghai Jiao Tong University working at the intersection of AI, robotics, and intelligent perception.', body: 'My interests center on 3D vision, affordance reasoning, simulation agents, and world models.', school: 'Shanghai Jiao Tong University', major: 'Intelligent Perception Engineering', expected: 'Expected 2027', gpa: 'GPA 3.5 / 4.3', education: 'Education', portraitAlt: 'Portrait of Junhao Liu' },
     contact: { kicker: 'Technical Constellation / 05', contact: 'Contact', heading: ['Let’s make sense', 'of physical worlds.'], github: 'GitHub', resume: 'Resume', stack: { 'AI / Data': ['Python', 'PyTorch', 'OpenCV', 'NumPy', 'OpenSpiel', 'HDF5', 'cd-hit'], 'Robotics / Simulation': ['ROS2', 'NVIDIA Isaac Sim', 'OmniGibson', 'Unitree Go2', 'MATLAB / Simulink'], Programming: ['C++', 'MATLAB'] }, flow: 'Perceive → Reason → Simulate → Act' },
     detail: {
       back: 'Back to portfolio', backHome: 'Back home', atGlance: 'At a glance', working: 'Working loop', evidence: 'Evidence kept visible', boundariesKicker: 'Boundaries / Next questions', boundariesTitle: 'What the work does not claim.', return: 'Return to all experience', viewOther: 'View', notFound: 'Experience not found.',
@@ -120,7 +120,7 @@ export const content = {
         { title: '答题卡识别与自动评分', date: '2025 / 12 — 2026 / 01', tags: ['计算机视觉', 'OpenCV', '几何视觉'], description: '开发 OpenCV 预处理、几何校正、轮廓分析与透视变换模块，实现自动化阅卷。', url: 'https://github.com/AlexDrives/answer-sheet-recognition-without-neural-network' },
       ],
     },
-    about: { kicker: '关于我 / 04', heading: '我就读于上海交通大学，关注人工智能、机器人和智能感知的交叉领域。', body: '目前的兴趣集中在三维视觉、可供性推理、仿真智能体和世界模型。', school: '上海交通大学', major: '智能感知专业', expected: '预计于 2027 年毕业', gpa: 'GPA 3.5 / 4.3', education: '教育背景' },
+    about: { kicker: '关于我 / 04', heading: '我就读于上海交通大学，关注人工智能、机器人和智能感知的交叉领域。', body: '目前的兴趣集中在三维视觉、可供性推理、仿真智能体和世界模型。', school: '上海交通大学', major: '智能感知专业', expected: '预计于 2027 年毕业', gpa: 'GPA 3.5 / 4.3', education: '教育背景', portraitAlt: '刘俊豪的个人照片' },
     contact: { kicker: '技术栈 / 05', contact: '联系', heading: ['一起让机器', '理解物理世界。'], github: 'GitHub', resume: '简历', stack: { 'AI / 数据': ['Python', 'PyTorch', 'OpenCV', 'NumPy', 'OpenSpiel', 'HDF5', 'cd-hit'], '机器人 / 仿真': ['ROS2', 'NVIDIA Isaac Sim', 'OmniGibson', 'Unitree Go2', 'MATLAB / Simulink'], 编程: ['C++', 'MATLAB'] }, flow: '感知 → 推理 → 仿真 → 行动' },
     detail: {
       back: '返回作品集', backHome: '返回首页', atGlance: '经历速览', working: '工作流程', evidence: '依据与记录', boundariesKicker: '范围与说明', boundariesTitle: '这段工作目前能说明什么？', return: '回到实习经历', viewOther: '查看', notFound: '未找到对应经历。',

@@ -20,6 +20,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'en')
   const [route, setRoute] = useState(currentRoute)
+  const [pendingSection, setPendingSection] = useState(null)
   const previousRoute = useRef(route)
   useEffect(() => { const onHashChange = () => setRoute(currentRoute()); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
   useEffect(() => { localStorage.setItem('portfolio-language', language); document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'; document.title = language === 'zh' ? '刘俊豪 — 具身智能' : 'Junhao Liu — Embodied AI' }, [language])
@@ -39,11 +40,17 @@ export default function App() {
     if (route) requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }))
     if (cameFromDetail && sessionStorage.getItem('portfolio-return-pending') === 'true') requestAnimationFrame(restoreExperiencePosition)
   }, [route])
+  useEffect(() => {
+    if (!route && pendingSection) {
+      requestAnimationFrame(() => document.getElementById(pendingSection)?.scrollIntoView({ behavior: 'smooth' }))
+      setPendingSection(null)
+    }
+  }, [route, pendingSection])
   const openExperience = () => {
     sessionStorage.setItem('portfolio-return-scroll', String(window.scrollY))
     sessionStorage.setItem('portfolio-return-pending', 'true')
   }
-  const goHome = ({ restorePosition = false } = {}) => {
+  const goHome = ({ restorePosition = false, section } = {}) => {
     if (window.location.hash) window.location.hash = ''
     if (window.location.pathname !== '/') window.history.pushState({}, '', '/')
     setRoute(null)
@@ -51,7 +58,8 @@ export default function App() {
     else {
       sessionStorage.removeItem('portfolio-return-scroll')
       sessionStorage.removeItem('portfolio-return-pending')
-      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }))
+      if (section) setPendingSection(section)
+      else requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }))
     }
   }
   const t = localized(language)

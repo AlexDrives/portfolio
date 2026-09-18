@@ -8,7 +8,13 @@ function GridIcon() { return <svg viewBox="0 0 18 18" className="grid-icon" aria
 
 export default function Navbar({ menuOpen, setMenuOpen, onHome, language, setLanguage, t }) {
   const links = [['home', t.nav.home], ['research', t.nav.research], ['experience', t.nav.experience], ['projects', t.nav.projects], ['about', t.nav.about], ['contact', t.nav.contact]]
-  const go = (id) => { setMenuOpen(false); if (id === 'home' && onHome) return onHome(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
+  const go = (id) => {
+    setMenuOpen(false)
+    if (id === 'home') return onHome?.()
+    const target = document.getElementById(id)
+    if (target) return target.scrollIntoView({ behavior: 'smooth' })
+    onHome?.({ section: id })
+  }
   return <>
     <motion.header className="navbar" initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .8, ease: [0.16, 1, 0.3, 1] }}>
       <div className="nav-left">
