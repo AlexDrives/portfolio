@@ -23,7 +23,7 @@ export default function App() {
   const [pendingSection, setPendingSection] = useState(null)
   const previousRoute = useRef(route)
   useEffect(() => { const onHashChange = () => setRoute(currentRoute()); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
-  useEffect(() => { localStorage.setItem('portfolio-language', language); document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'; document.title = language === 'zh' ? '刘俊豪 — 具身智能' : 'Junhao Liu — Embodied AI' }, [language])
+  useEffect(() => { localStorage.setItem('portfolio-language', language); document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'; document.title = language === 'zh' ? '刘俊豪 — 具身智能与机器人' : 'Junhao Liu — Embodied AI & Robotics' }, [language])
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
     return () => { window.history.scrollRestoration = 'auto' }
