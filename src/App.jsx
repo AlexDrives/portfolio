@@ -9,20 +9,46 @@ import Contact from './components/Contact'
 import ExperienceDetail from './components/ExperienceDetail'
 import { localized } from './data/content'
 
-function currentRoute() {
-  const hash = window.location.hash.replace(/^#/, '')
-  if (hash.startsWith('experience/')) return hash.split('/')[1]
+const SECTION_IDS = new Set(['research', 'experience', 'projects', 'about', 'contact'])
+
+function parseLocation() {
+  const rawHash = window.location.hash.replace(/^#/, '')
+  if (rawHash.startsWith('experience/')) {
+    return { route: rawHash.split('/')[1], section: null, emailChannel: null }
+  }
+  if (rawHash.startsWith('contact/')) {
+    const ch = rawHash.split('/')[1]
+    return { route: null, section: `email-${ch}`, emailChannel: ch }
+  }
+  if (SECTION_IDS.has(rawHash)) {
+    return { route: null, section: rawHash, emailChannel: null }
+  }
   const path = window.location.pathname.replace(/^\//, '').replace(/\/$/, '')
-  return path.startsWith('experience/') ? path.split('/')[1] : null
+  if (path.startsWith('experience/')) {
+    return { route: path.split('/')[1], section: null, emailChannel: null }
+  }
+  return { route: null, section: null, emailChannel: null }
 }
 
 export default function App() {
+  const initial = parseLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'en')
-  const [route, setRoute] = useState(currentRoute)
-  const [pendingSection, setPendingSection] = useState(null)
+  const [route, setRoute] = useState(initial.route)
+  const [pendingSection, setPendingSection] = useState(initial.section)
+  const [activeEmail, setActiveEmail] = useState(initial.emailChannel)
   const previousRoute = useRef(route)
-  useEffect(() => { const onHashChange = () => setRoute(currentRoute()); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const next = parseLocation()
+      setRoute(next.route)
+      setActiveEmail(next.emailChannel)
+      if (next.section) setPendingSection(next.section)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
   useEffect(() => { localStorage.setItem('portfolio-language', language); document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'; document.title = language === 'zh' ? '刘俊豪 — 具身智能与机器人' : 'Junhao Liu — Embodied AI & Robotics' }, [language])
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
@@ -41,9 +67,13 @@ export default function App() {
     if (cameFromDetail && sessionStorage.getItem('portfolio-return-pending') === 'true') requestAnimationFrame(restoreExperiencePosition)
   }, [route])
   useEffect(() => {
-    if (!route && pendingSection) {
-      requestAnimationFrame(() => document.getElementById(pendingSection)?.scrollIntoView({ behavior: 'smooth' }))
+    if (pendingSection) {
+      const timer = requestAnimationFrame(() => {
+        const el = document.getElementById(pendingSection) || document.getElementById('contact')
+        el?.scrollIntoView({ behavior: 'smooth', block: pendingSection.startsWith('email-') ? 'center' : 'start' })
+      })
       setPendingSection(null)
+      return () => cancelAnimationFrame(timer)
     }
   }, [route, pendingSection])
   const openExperience = () => {
@@ -51,9 +81,12 @@ export default function App() {
     sessionStorage.setItem('portfolio-return-pending', 'true')
   }
   const goHome = ({ restorePosition = false, section } = {}) => {
-    if (window.location.hash) window.location.hash = ''
-    if (window.location.pathname !== '/') window.history.pushState({}, '', '/')
+    const nextHash = section ? `#${section}` : ''
+    if (window.location.hash !== nextHash) {
+      window.history.pushState({}, '', nextHash || '/')
+    }
     setRoute(null)
+    setActiveEmail(null)
     if (restorePosition) sessionStorage.setItem('portfolio-return-pending', 'true')
     else {
       sessionStorage.removeItem('portfolio-return-scroll')
@@ -64,6 +97,6 @@ export default function App() {
   }
   const t = localized(language)
   const changeLanguage = (next) => setLanguage(next)
-  if (route) return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><ExperienceDetail slug={route} onHome={goHome} t={t} language={language} /></>
-  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} /></>
+  if (route) return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><ExperienceDetail slug={route} onHome={goHome} t={t} language={language} /><Contact t={t} activeEmail={activeEmail} /></>
+  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} activeEmail={activeEmail} /></>
 }

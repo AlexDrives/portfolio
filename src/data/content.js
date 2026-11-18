@@ -158,12 +158,38 @@ export const content = {
     },
     contact: {
       kicker: 'Technical Stack / 05',
-      contact: 'Contact',
+      contact: 'Contact & Email Routing',
+      routingLabel: 'Inbox Routing Directory',
+      copy: 'Copy',
+      copied: 'Copied ✓',
       heading: 'Open to research discussions and 2027 graduate opportunities.',
       subcopy:
-        'Interested in 3D vision, affordance reasoning, Real2Sim simulation agents, world models, and robot learning.',
+        'Interested in 3D vision, affordance reasoning, Real2Sim simulation agents, world models, and robot learning. Reach out via the inbox best matched to your context:',
       github: 'github.com/AlexDrives',
       resume: 'Curriculum Vitae (PDF)',
+      emails: [
+        {
+          id: 'academic',
+          badge: 'Academic & Primary · SJTU',
+          address: 'whichAlex@sjtu.edu.cn',
+          description:
+            'Shanghai Jiao Tong University institutional inbox — preferred for 2027 Fall PhD / graduate admissions, faculty outreach, and academic research.',
+        },
+        {
+          id: 'work',
+          badge: 'R&D Work · ABB Robotics',
+          address: 'junhao.liu@cn.abb.com',
+          description:
+            'ABB Robotics corporate R&D inbox — for Real2Sim pipelines, Port–Mate environment reasoning, and industrial robotics collaboration.',
+        },
+        {
+          id: 'personal',
+          badge: 'Personal & Open-Source · Gmail',
+          address: 'alex20160117@gmail.com',
+          description:
+            'Long-term personal inbox (persists beyond graduation) — for GitHub repositories, open-source engineering, and general correspondence.',
+        },
+      ],
       stack: {
         'Embodied AI & Simulation': [
           'OmniGibson',
@@ -544,12 +570,38 @@ export const content = {
     },
     contact: {
       kicker: '技术栈 / 05',
-      contact: '联系与交流',
+      contact: '联系与邮箱导航',
+      routingLabel: '分场景联络邮箱指引',
+      copy: '复制',
+      copied: '已复制 ✓',
       heading: '期待围绕具身智能研究合作与 2027 深造机会交流。',
       subcopy:
-        '主要兴趣包括三维视觉、可供性推理、Real2Sim 仿真智能体、世界模型与机器人学习。',
+        '主要兴趣包括三维视觉、可供性推理、Real2Sim 仿真智能体、世界模型与机器人学习。可根据沟通场景选择对应邮箱联络：',
       github: 'github.com/AlexDrives',
       resume: '个人简历 (PDF)',
+      emails: [
+        {
+          id: 'academic',
+          badge: '学术与深造主邮箱 · 上海交大',
+          address: 'whichAlex@sjtu.edu.cn',
+          description:
+            '上海交通大学校内主邮箱——优先用于 2027 秋季博士（PhD）/ 研究生深造联系、导师学术交流与课题讨论。',
+        },
+        {
+          id: 'work',
+          badge: '研发工作邮箱 · ABB Robotics',
+          address: 'junhao.liu@cn.abb.com',
+          description:
+            'ABB Robotics 企业研发邮箱——用于 Real2Sim 场景构建、Port–Mate 环境推理及具身机器人产研技术合作。',
+        },
+        {
+          id: 'personal',
+          badge: '个人与开源长效邮箱 · Gmail',
+          address: 'alex20160117@gmail.com',
+          description:
+            '不受毕业或机构变动影响的长期个人邮箱——用于 GitHub 开源仓库交流、工程复现讨论与日常联络。',
+        },
+      ],
       stack: {
         '具身智能与仿真': [
           'OmniGibson',
