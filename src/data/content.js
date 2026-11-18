@@ -143,8 +143,8 @@ export const content = {
       kicker: 'About / 04',
       heading: 'Studying how intelligent agents build structured models of the physical world.',
       paragraphs: [
-        'I am a senior undergraduate in Intelligent Perception Engineering at Shanghai Jiao Tong University (School of Automation and Intelligent Sensing). My trajectory moved from SE(3) biomolecular representation learning and game-theoretic RL into quadruped sim-to-real navigation, Real2Sim scene reasoning at ABB Robotics, and 6B bimanual VLA deployment on physical robots.',
-        'Across simulation and real hardware, I focus on the boundary where pure end-to-end policies hit out-of-distribution limits—making geometric constraints explicit, failure modes diagnosable, and physical execution dependable.',
+        'I am a senior undergraduate in Intelligent Perception Engineering at Shanghai Jiao Tong University (School of Automation and Intelligent Sensing). My work has moved from SE(3) biomolecular representation learning and game-theoretic RL into quadruped sim-to-real navigation, Real2Sim scene reasoning at ABB Robotics, and 6B bimanual VLA deployment on physical robots.',
+        'Across simulation and real hardware, I am most interested in how explicit geometric and physical structure works alongside learned policies—making assumptions clear, failure modes diagnosable, and robot execution reliable.',
       ],
       education: 'Education',
       school: 'Shanghai Jiao Tong University',
@@ -153,7 +153,7 @@ export const content = {
       expected: 'Class of 2027 · Perception Systems 100/100 (Rank 1/38) · GRE Q170 · TOEFL 107',
       beyondLabel: 'Off the Clock',
       beyondText:
-        'Blues & progressive-rock guitarist (SRV, Pink Floyd, King Crimson) with live band stage experience · Lifelong car & mechanical enthusiast (hence AlexDrives) · Sci-fi cinema (Blade Runner, 2001) & imperfect-information games.',
+        'I play guitar in my spare time and listen to a lot of Stevie Ray Vaughan, Pink Floyd, and King Crimson. Also into cars (hence AlexDrives), sci-fi films (Blade Runner, 2001: A Space Odyssey), and games like Dark Souls, Civilization, and Texas Hold’em.',
       portraitAlt: 'Portrait of Junhao Liu',
     },
     contact: {
@@ -368,8 +368,8 @@ export const content = {
           },
         ],
         trajectoryNote: {
-          kicker: 'Why This Internship Reshaped My Research Focus',
-          body: 'Watching a policy succeed across thousands of simulated episodes yet stall when confronted with unfamiliar physical clutter was a turning point: it convinced me that scaling reward tuning alone is insufficient without explicit, generalizable 3D world representations—directly motivating my subsequent Real2Sim and Port–Mate research at ABB Robotics.',
+          kicker: 'Research Takeaway',
+          body: 'Seeing a navigation policy perform well in simulation yet stall in unfamiliar physical clutter made it clear that reward tuning alone does not solve generalization—motivating my subsequent shift toward explicit 3D scene representations (Real2Sim / Port–Mate) at ABB Robotics.',
         },
         boundaries: [
           {
@@ -382,7 +382,7 @@ export const content = {
           },
           {
             title: 'Cross-Embodiment Egocentric Transfer',
-            body: 'Bridging human camera height, gait oscillation, and field-of-view differences to quadruped or humanoid velocity commands remains an exciting open geometric problem.',
+            body: 'Bridging human camera height, gait oscillation, and field-of-view differences to quadruped or humanoid velocity commands remains an open geometric problem.',
           },
         ],
         media: [],
@@ -529,8 +529,8 @@ export const content = {
       kicker: '关于我 / 04',
       heading: '关注智能体如何建立关于物理世界的结构化理解，并在真实环境中可靠行动。',
       paragraphs: [
-        '我是上海交通大学自动化与感知学院智能感知工程专业大四本科生。从早期的 SE(3) RNA 三维结构离散表征与不完全信息博弈求解出发，逐步走向四足机器人 Sim2Real 导航、ABB Robotics 的 Real2Sim 场景推理，以及 6B 双臂真机 VLA 具身系统实践。',
-        '无论是仿真引擎里的几何与物理约束，还是真机部署中的分布外失效，我始终关注“显式结构”与“学习策略”的交界处——把隐含假设写清楚，让失效根因可诊断，让机器动作经得起真实物理环境检验。',
+        '我是上海交通大学自动化与感知学院智能感知工程专业大四本科生。从早期的 RNA 三维结构离散表征与不完全信息博弈求解开始，陆续做过四足机器人 Sim2Real 导航、ABB Robotics 的 Real2Sim 场景推理，以及双臂真机 VLA 训练与部署。',
+        '在仿真和真机项目里，我最关心的是显式几何/物理约束与学习策略怎么配合：把隐含假设写清楚，让失效原因可定位，让策略在真实环境里站得住。',
       ],
       education: '教育背景',
       school: '上海交通大学',
@@ -539,7 +539,7 @@ export const content = {
       expected: '预计 2027 年 6 月毕业 · 《智能感知系统》100/100（专业 1/38） · GRE Q170 · TOEFL 107',
       beyondLabel: '代码之外',
       beyondText:
-        '布鲁斯与前卫摇滚乐队吉他手（偏爱 SRV、Pink Floyd、King Crimson） · 从小痴迷汽车与机械工程（AlexDrives 的由来） · 喜欢《银翼杀手》《2001 太空漫游》与策略博弈游戏。',
+        '平时喜欢弹吉他，常听 Stevie Ray Vaughan、Pink Floyd 和 King Crimson；从小喜欢车（AlexDrives 的由来），也常看《银翼杀手》《2001 太空漫游》这类科幻片，玩魂系、《文明》和德州扑克。',
       portraitAlt: '刘俊豪个人照片',
     },
     contact: {
@@ -687,7 +687,7 @@ export const content = {
           },
           {
             title: '面向真机长尾失效的闭环场景合成',
-            body: '如何根据真机 DAgger 暴露出的失败场景，自动用 Port–Mate 生成受控的 Real2Sim 变体场景反哺 VLA 后训练，是最令我兴奋的博士阶段课题之一。',
+            body: '如何根据真机 DAgger 暴露出的失败场景，用 Port–Mate 生成受控的 Real2Sim 变体场景并反哺 VLA 后训练，是我接下来希望继续探索的方向。',
           },
         ],
         other: '协创数据技术（ShareTronic） · 四足 RL 与 Sim2Real',
@@ -754,13 +754,13 @@ export const content = {
           },
         ],
         trajectoryNote: {
-          kicker: '这段经历如何塑造了我的研究主线',
-          body: '亲眼看到在仿真里跑过上万回合的强化学习策略一旦放进陌生的真实障碍布局就陷入停摆，成了我本科阶段最重要的研究转折点：它让我意识到仅靠策略端调参难以跨越开放物理环境的组合泛化鸿沟，进而推动我走向 ABB Robotics 的结构化三维世界表征（Real2Sim / Port–Mate）与具身大模型研究。',
+          kicker: '这段经历带来的思考',
+          body: '在仿真里收敛得很好的导航策略，一旦遇到没见过的密集障碍布局就容易失效。这段经历让我意识到只靠调奖励和超参数很难解决泛化问题，也直接促使我后来去 ABB 探索结构化场景表征（Real2Sim / Port–Mate）与具身模型。',
         },
         boundaries: [
           {
             title: '反应式策略与结构化空间记忆',
-            body: '仅依赖瞬时局部测距的反应式 RL 在走廊避障中高效轻量，但在遮挡与局部极小值死胡同中亟需显式短期三维场景记忆支撑。',
+            body: '仅依赖瞬时局部测距的反应式 RL 在走廊避障中高效轻量，但在遮挡与局部死胡同场景中需要短期三维场景记忆支撑。',
           },
           {
             title: '感知建图延迟与控制频率耦合',
@@ -768,7 +768,7 @@ export const content = {
           },
           {
             title: '跨视点第一视角视频的几何迁移',
-            body: '如何消除人类手持/头部视角晃动、身高视场差异并稳健映射到四足或人形机器人的速度控制空间，仍是极具价值的开放几何问题。',
+            body: '如何消除人类手持/头部视角晃动、身高视场差异并稳健映射到四足或人形机器人的速度控制空间，仍是待解决的几何问题。',
           },
         ],
         media: [],
