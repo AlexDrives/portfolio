@@ -14,20 +14,19 @@ const SECTION_IDS = new Set(['research', 'experience', 'projects', 'about', 'con
 function parseLocation() {
   const rawHash = window.location.hash.replace(/^#/, '')
   if (rawHash.startsWith('experience/')) {
-    return { route: rawHash.split('/')[1], section: null, emailChannel: null }
+    return { route: rawHash.split('/')[1], section: null }
   }
   if (rawHash.startsWith('contact/')) {
-    const ch = rawHash.split('/')[1]
-    return { route: null, section: `email-${ch}`, emailChannel: ch }
+    return { route: null, section: 'contact' }
   }
   if (SECTION_IDS.has(rawHash)) {
-    return { route: null, section: rawHash, emailChannel: null }
+    return { route: null, section: rawHash }
   }
   const path = window.location.pathname.replace(/^\//, '').replace(/\/$/, '')
   if (path.startsWith('experience/')) {
-    return { route: path.split('/')[1], section: null, emailChannel: null }
+    return { route: path.split('/')[1], section: null }
   }
-  return { route: null, section: null, emailChannel: null }
+  return { route: null, section: null }
 }
 
 export default function App() {
@@ -36,14 +35,12 @@ export default function App() {
   const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'en')
   const [route, setRoute] = useState(initial.route)
   const [pendingSection, setPendingSection] = useState(initial.section)
-  const [activeEmail, setActiveEmail] = useState(initial.emailChannel)
   const previousRoute = useRef(route)
 
   useEffect(() => {
     const onHashChange = () => {
       const next = parseLocation()
       setRoute(next.route)
-      setActiveEmail(next.emailChannel)
       if (next.section) setPendingSection(next.section)
     }
     window.addEventListener('hashchange', onHashChange)
@@ -69,8 +66,7 @@ export default function App() {
   useEffect(() => {
     if (pendingSection) {
       const timer = requestAnimationFrame(() => {
-        const el = document.getElementById(pendingSection) || document.getElementById('contact')
-        el?.scrollIntoView({ behavior: 'smooth', block: pendingSection.startsWith('email-') ? 'center' : 'start' })
+        document.getElementById(pendingSection)?.scrollIntoView({ behavior: 'smooth' })
       })
       setPendingSection(null)
       return () => cancelAnimationFrame(timer)
@@ -86,7 +82,6 @@ export default function App() {
       window.history.pushState({}, '', nextHash || '/')
     }
     setRoute(null)
-    setActiveEmail(null)
     if (restorePosition) sessionStorage.setItem('portfolio-return-pending', 'true')
     else {
       sessionStorage.removeItem('portfolio-return-scroll')
@@ -97,6 +92,6 @@ export default function App() {
   }
   const t = localized(language)
   const changeLanguage = (next) => setLanguage(next)
-  if (route) return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><ExperienceDetail slug={route} onHome={goHome} t={t} language={language} /><Contact t={t} activeEmail={activeEmail} /></>
-  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} activeEmail={activeEmail} /></>
+  if (route) return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><ExperienceDetail slug={route} onHome={goHome} t={t} language={language} /><Contact t={t} /></>
+  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} /></>
 }

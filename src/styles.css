@@ -528,116 +528,36 @@ h1 {
   line-height: 1.65;
 }
 .contact-bottom {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 1.08fr);
-  align-items: start;
-  gap: 5vw;
-  padding: 76px 0 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding: 76px 0 96px;
 }
-.contact-copy { max-width: 520px; }
+.contact-copy { max-width: 620px; }
 .contact-copy h2 {
   margin: 16px 0 14px;
-  font-size: clamp(1.9rem, 3.3vw, 2.95rem);
+  font-size: clamp(1.9rem, 3.4vw, 3.1rem);
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -.045em;
 }
 .contact-copy > p:not(.section-kicker) {
   margin: 0;
-  color: rgba(255, 255, 255, .58);
+  color: rgba(255, 255, 255, .56);
   font-size: 13.5px;
-  line-height: 1.66;
+  line-height: 1.6;
 }
-.contact-resource-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 32px;
-}
-.contact-resource-links a {
+.contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; flex: 0 0 auto; }
+.contact-links a {
   padding-bottom: 5px;
   border-bottom: 1px solid rgba(255, 255, 255, .34);
   font-size: 12.5px;
   color: rgba(255, 255, 255, .9);
   transition: border-color .2s ease, color .2s ease;
 }
-.contact-resource-links a:hover { border-color: #fff; color: #fff; }
-.contact-resource-links span { margin-left: 8px; font-size: 13.5px; }
-
-.email-directory {
-  border-top: 1px solid rgba(255, 255, 255, .16);
-}
-.email-directory-kicker {
-  display: block;
-  padding: 14px 0 10px;
-  color: rgba(255, 255, 255, .44);
-  font-size: 10.5px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.email-channel {
-  padding: 16px 16px 17px;
-  margin-bottom: 10px;
-  border: 1px solid rgba(255, 255, 255, .13);
-  background: rgba(255, 255, 255, .03);
-  transition: border-color .2s ease, background .2s ease;
-}
-.email-channel:hover,
-.email-channel-active {
-  border-color: rgba(255, 255, 255, .42);
-  background: rgba(255, 255, 255, .065);
-}
-.email-channel-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 7px;
-}
-.email-channel-badge {
-  color: rgba(255, 255, 255, .52);
-  font-size: 10px;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-}
-.email-copy-btn {
-  padding: 2px 9px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, .2);
-  background: transparent;
-  color: rgba(255, 255, 255, .7);
-  font-size: 10px;
-  transition: border-color .2s ease, color .2s ease, background .2s ease;
-}
-.email-copy-btn:hover {
-  border-color: rgba(255, 255, 255, .65);
-  color: #fff;
-  background: rgba(255, 255, 255, .08);
-}
-.email-channel-address {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: -.01em;
-}
-.email-channel-address span {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, .55);
-  transition: transform .2s ease, color .2s ease;
-}
-.email-channel:hover .email-channel-address span {
-  transform: translate(2px, -2px);
-  color: #fff;
-}
-.email-channel-desc {
-  margin: 7px 0 0;
-  color: rgba(255, 255, 255, .58);
-  font-size: 12px;
-  line-height: 1.55;
-}
+.contact-links a:hover { border-color: #fff; color: #fff; }
+.contact-links span { margin-left: 14px; font-size: 14px; }
 .footer-line {
   display: flex;
   justify-content: space-between;
@@ -1064,7 +984,6 @@ html[lang='zh-CN'] .detail-module-card h3 {
   .about-copy { grid-column: span 2; }
   .portrait { justify-self: start; }
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-bottom { grid-template-columns: 1fr; gap: 40px; }
   .detail-facts-grid { grid-template-columns: repeat(2, 1fr); }
   .detail-media-grid { grid-template-columns: 1fr; }
   .formula-callout { grid-template-columns: 1fr; gap: 18px; }
@@ -1111,8 +1030,8 @@ html[lang='zh-CN'] .detail-module-card h3 {
   .portrait { max-width: 280px; }
   .contact { padding: 80px 20px 22px; }
   .stack-grid { gap: 22px; padding: 24px 0 60px; }
-  .contact-bottom { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 68px; }
-  .contact-resource-links { margin-top: 22px; }
+  .contact-bottom { display: block; padding: 56px 0 72px; }
+  .contact-links { margin-top: 36px; }
   .footer-line { gap: 12px; line-height: 1.4; }
   .footer-line span:nth-child(2) { display: none; }
   .detail-band { padding: 56px 20px; }
