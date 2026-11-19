@@ -262,10 +262,10 @@ export const content = {
         modulesTitle: 'Four tightly coupled layers from raw visual meshes to simulator-verified scenes.',
         sections: [
           {
-            label: '01 / Automated Real2Sim Asset Gate',
-            title: 'Turning visual observations into physics-dependable USD assets.',
-            body: 'Built a six-stage Real2Sim standardization workflow with SimFoundry and OmniGibson: scale calibration, RGB-D support-plane fitting, convex-hull collider decomposition, mass/inertia configuration, and automated single-process runtime smoke gates before any asset enters multi-object planning.',
-            takeaway: 'Eliminates silent mesh-collider mismatches and unstable rigid-body defaults prior to scene assembly.',
+            label: '01 / Port-Ready Real2Sim Asset Gate',
+            title: 'Co-authoring parametric geometry and native ports before physics export.',
+            body: 'Built a Port-Ready Real2Sim pipeline (monocular photo + NL → Blender port_kit + 4-view VLM visual self-check) alongside a 6-stage standardization workflow for scanned meshes. Port-guided analytical convex decomposition (~0.12s) preserves blind holes and cavities without CoACD sealing, gated by dual visual + collision verification.',
+            takeaway: 'Eliminates nominal-port vs. collider mismatches before assets enter multi-object planning.',
           },
           {
             label: '02 / CAD-Inspired Port–Mate Contract',
@@ -648,10 +648,10 @@ export const content = {
         modulesTitle: '从视觉观测网格到物理可验证场景的四层核心工程模块。',
         sections: [
           {
-            label: '01 / Real2Sim 资产物理标准化门控',
-            title: '把原始扫描与生成网格变成行为可信的物理资产。',
-            body: '围绕 SimFoundry 与 OmniGibson 建立六阶段新资产验收流水线：覆盖尺度标定、RGB-D 支撑平面拟合、凸包碰撞体分解、质量/惯量刚体属性配置及单进程 Runtime Smoke Gate，打通实扫 USDObject 与标准数据集资产的统一加载。',
-            takeaway: '在进入多物体场景规划前前置消除碰撞体穿模与刚体失稳隐患。',
+            label: '01 / Port-Ready Real2Sim 资产门控',
+            title: '在建模阶段同参同源生成几何与原生端口，避免后续碰撞封孔失配。',
+            body: '搭建 Port-Ready Real2Sim 管线（单目参考照片 + 自然语言 → Blender port_kit 参数化建模 + 四视图视觉自检闭环）及实扫资产六阶段标准化流程；通过端口引导解析凸分解（约 0.12s）绕开 CoACD 封堵盲孔/容腔的问题，并在视觉与碰撞双几何上核验通过后导出 OmniGibson OpenUSD。',
+            takeaway: '在进入多物体场景规划前，从源头上保证标称端口与物理碰撞体几何一致。',
           },
           {
             label: '02 / 受 CAD 装配启发的 Port–Mate 表征',

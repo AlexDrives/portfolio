@@ -46,13 +46,13 @@ export default function ExperienceDiagram({ slug, language }) {
             <g transform="translate(30, 50)">
               <rect width="215" height="68" rx="4" fill="#ffffff" stroke="#d4d4d8" />
               <text x="14" y="22" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
-                {zh ? '01 · 视觉观测与扫描网格' : '01 · Visual & Scanned Inputs'}
+                {zh ? '01 · 单目照片 / 扫描输入' : '01 · Photo / Scan Inputs'}
               </text>
               <text x="14" y="41" fontSize="10.5" fill="#52525b">
-                {zh ? 'RGB-D / 视频观测 · 原始扫描 USD' : 'RGB-D / Video · Raw Scanned Meshes'}
+                {zh ? '单目照片 + NL · 实扫网格' : 'Single Photo + NL · Scanned USD'}
               </text>
               <text x="14" y="57" fontSize="10" fill="#71717a">
-                SimFoundry / BEHAVIOR-1K
+                Port-Ready Real2Sim / Blender
               </text>
             </g>
 
@@ -61,13 +61,13 @@ export default function ExperienceDiagram({ slug, language }) {
             <g transform="translate(285, 50)">
               <rect width="245" height="68" rx="4" fill="#ffffff" stroke="#d4d4d8" />
               <text x="14" y="22" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
-                {zh ? '02 · 六阶段几何与物理标准化' : '02 · Geometry & Physics Gate'}
+                {zh ? '02 · 同源建模与解析凸分解' : '02 · Co-Authored Ports & Convex Gate'}
               </text>
               <text x="14" y="41" fontSize="10.5" fill="#52525b">
-                {zh ? '尺度拟合 · 凸包碰撞体 · 质量/惯量' : 'Scale Fit · Convex Colliders · Mass/Inertia'}
+                {zh ? '四视图视觉自检 · 端口引导防封孔分解' : '4-View VLM Check · Hole-Preserving Hulls'}
               </text>
               <text x="14" y="57" fontSize="10" fill="#71717a">
-                {zh ? '运行时 Smoke Gate 自动核验' : 'Automated Runtime Smoke Gate'}
+                {zh ? '视觉 / 碰撞双几何端口校验' : 'Dual Visual + Collision Verification'}
               </text>
             </g>
 
