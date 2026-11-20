@@ -21,11 +21,23 @@ export default function About({ t }) {
           <h3>{t.about.school}</h3>
           <p className="education-major">{t.about.major}</p>
           <p className="education-dept">{t.about.department}</p>
-          <span className="education-year">{t.about.expected}</span>
+          <div className="education-meta">
+            <span>{t.about.expected}</span>
+            {t.about.scores ? <span>{t.about.scores}</span> : null}
+          </div>
         </div>
         <div className="beyond-block">
           <p className="section-kicker">{t.about.beyondLabel}</p>
-          <p>{t.about.beyondText}</p>
+          <p className="beyond-copy">{t.about.beyondText}</p>
+          <a
+            className="easter-egg-link"
+            href="https://alexdrives.github.io/literally-me/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i aria-hidden="true" />
+            {t.about.easterEggLabel} <span>↗</span>
+          </a>
         </div>
       </motion.div>
     </section>

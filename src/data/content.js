@@ -149,11 +149,13 @@ export const content = {
       education: 'Education',
       school: 'Shanghai Jiao Tong University',
       major: 'B.E. in Intelligent Perception Engineering',
-      department: 'School of Automation & Intelligent Sensing · Junior Major GPA 89.5 / 100 (3.81 / 4.3)',
-      expected: 'Class of 2027 · Perception Systems 100/100 (Rank 1/38) · GRE Q170 · TOEFL 107',
+      department: 'School of Automation & Intelligent Sensing',
+      expected: 'Class of 2027 · Junior Major GPA 3.81 / 4.3',
+      scores: 'GRE Q170 · TOEFL 107',
       beyondLabel: 'Off the Clock',
       beyondText:
-        'I play guitar in my spare time and listen to a lot of Stevie Ray Vaughan, Pink Floyd, and King Crimson. Also into cars (hence AlexDrives), sci-fi films (Blade Runner, 2001: A Space Odyssey), and games like Dark Souls, Civilization, and Texas Hold’em.',
+        'I play guitar in my spare time and listen to Stevie Ray Vaughan, Pink Floyd, and King Crimson. Also into cars (hence AlexDrives), sci-fi cinema (Blade Runner, 2001: A Space Odyssey), and games like Dark Souls, Civilization, and Texas Hold’em.',
+      easterEggLabel: 'Easter Egg · literally-me (ASCII & 3D)',
       portraitAlt: 'Portrait of Junhao Liu',
     },
     contact: {
@@ -164,6 +166,7 @@ export const content = {
         'Interested in 3D vision, affordance reasoning, Real2Sim simulation agents, world models, and robot learning.',
       github: 'github.com/AlexDrives',
       resume: 'Curriculum Vitae (PDF)',
+      easterEgg: 'Easter Egg · literally-me',
       stack: {
         'Embodied AI & Simulation': [
           'OmniGibson',
@@ -500,11 +503,13 @@ export const content = {
       education: '教育背景',
       school: '上海交通大学',
       major: '智能感知工程 · 工学学士在读',
-      department: '自动化与感知学院 · 大三专业核心均分 89.5 / 100 (3.81 / 4.3)',
-      expected: '预计 2027 年 6 月毕业 · 《智能感知系统》100/100（专业 1/38） · GRE Q170 · TOEFL 107',
+      department: '自动化与感知学院 · 预计 2027 年 6 月毕业',
+      expected: '大三专业核心 89.5 / 100 (3.81 / 4.3)',
+      scores: 'GRE Q170 · TOEFL 107',
       beyondLabel: '代码之外',
       beyondText:
         '平时喜欢弹吉他，常听 Stevie Ray Vaughan、Pink Floyd 和 King Crimson；从小喜欢车（AlexDrives 的由来），也常看《银翼杀手》《2001 太空漫游》这类科幻片，玩魂系、《文明》和德州扑克。',
+      easterEggLabel: '彩蛋主页 · literally-me（ASCII / 3D）',
       portraitAlt: '刘俊豪个人照片',
     },
     contact: {
@@ -515,6 +520,7 @@ export const content = {
         '主要兴趣包括三维视觉、可供性推理、Real2Sim 仿真智能体、世界模型与机器人学习。',
       github: 'github.com/AlexDrives',
       resume: '个人简历 (PDF)',
+      easterEgg: '彩蛋主页 · literally-me',
       stack: {
         '具身智能与仿真': [
           'OmniGibson',

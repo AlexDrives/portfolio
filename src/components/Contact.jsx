@@ -24,6 +24,7 @@ export default function Contact({ t }) {
           <a href="mailto:whichAlex@sjtu.edu.cn">whichAlex@sjtu.edu.cn <span>↗</span></a>
           <a href="https://github.com/AlexDrives" target="_blank" rel="noopener noreferrer">{t.contact.github} <span>↗</span></a>
           <a href={t.cvUrl} target="_blank" rel="noopener noreferrer">{t.contact.resume} <span>↗</span></a>
+          <a href="https://alexdrives.github.io/literally-me/" target="_blank" rel="noopener noreferrer">{t.contact.easterEgg} <span>↗</span></a>
         </div>
       </motion.div>
       <div className="footer-line">
