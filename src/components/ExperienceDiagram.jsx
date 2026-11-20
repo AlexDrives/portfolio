@@ -108,11 +108,12 @@ export default function ExperienceDiagram({ slug, language }) {
 
             {/* Feedback loop */}
             <path
+              className="svg-flow-dash"
               d="M 927 168 L 927 222 L 670 222 L 670 172"
               fill="none"
               stroke="#0e7490"
-              strokeWidth="1.25"
-              strokeDasharray="5 3"
+              strokeWidth="1.4"
+              strokeDasharray="6 4"
               markerEnd="url(#abb-arrow-cyan)"
             />
             <rect x="698" y="211" width="212" height="20" rx="10" fill="#fafafa" />
@@ -240,11 +241,12 @@ export default function ExperienceDiagram({ slug, language }) {
 
           {/* Sim2Real feedback arrow */}
           <path
+            className="svg-flow-dash"
             d="M 927 144 L 927 184 L 409 184 L 409 148"
             fill="none"
             stroke="#0f766e"
-            strokeWidth="1.25"
-            strokeDasharray="5 3"
+            strokeWidth="1.4"
+            strokeDasharray="6 4"
             markerEnd="url(#st-arrow-teal)"
           />
           <rect x="520" y="173" width="295" height="20" rx="10" fill="#fafafa" />

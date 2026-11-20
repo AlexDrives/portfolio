@@ -1,17 +1,24 @@
 import { motion } from 'motion/react'
 
+function trackSpotlight(e) {
+  const rect = e.currentTarget.getBoundingClientRect()
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+  e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`)
+}
+
 export default function ProjectCard({ project, index }) {
   return (
     <motion.a
-      className={`project-card${project.featured ? ' project-card-featured' : ''}`}
+      className={`project-card spotlight-card${project.featured ? ' project-card-featured' : ''}`}
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseMove={trackSpotlight}
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, amount: .15 }}
       transition={{ duration: .65, delay: index * .07 }}
-      whileHover={{ y: -2 }}
+      whileHover={{ y: -3 }}
     >
       <div className="project-top">
         <span className="project-index">

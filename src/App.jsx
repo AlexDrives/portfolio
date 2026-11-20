@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useSpring } from 'motion/react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Research from './components/Research'
@@ -35,7 +36,10 @@ export default function App() {
   const [language, setLanguage] = useState(() => localStorage.getItem('portfolio-language') || 'en')
   const [route, setRoute] = useState(initial.route)
   const [pendingSection, setPendingSection] = useState(initial.section)
+  const [activeSection, setActiveSection] = useState('home')
   const previousRoute = useRef(route)
+  const { scrollYProgress } = useScroll()
+  const progressScaleX = useSpring(scrollYProgress, { stiffness: 220, damping: 32, restDelta: 0.001 })
 
   useEffect(() => {
     const onHashChange = () => {
@@ -72,6 +76,36 @@ export default function App() {
       return () => cancelAnimationFrame(timer)
     }
   }, [route, pendingSection])
+  useEffect(() => {
+    if (route) return
+    const ids = ['home', 'research', 'experience', 'projects', 'about', 'contact']
+    const updateActive = () => {
+      if (window.scrollY < 120) {
+        setActiveSection('home')
+        return
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) {
+        setActiveSection('contact')
+        return
+      }
+      const triggerY = window.innerHeight * 0.36
+      let current = 'home'
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= triggerY) {
+          current = id
+        }
+      }
+      setActiveSection(current)
+    }
+    updateActive()
+    window.addEventListener('scroll', updateActive, { passive: true })
+    window.addEventListener('resize', updateActive, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', updateActive)
+      window.removeEventListener('resize', updateActive)
+    }
+  }, [route])
   const openExperience = () => {
     sessionStorage.setItem('portfolio-return-scroll', String(window.scrollY))
     sessionStorage.setItem('portfolio-return-pending', 'true')
@@ -92,6 +126,7 @@ export default function App() {
   }
   const t = localized(language)
   const changeLanguage = (next) => setLanguage(next)
-  if (route) return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><ExperienceDetail slug={route} onHome={goHome} t={t} language={language} /><Contact t={t} /></>
-  return <><Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} /></>
+  const progressBar = <motion.div className="scroll-progress-bar" style={{ scaleX: progressScaleX }} aria-hidden="true" />
+  if (route) return <>{progressBar}<Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} activeSection="experience" /><ExperienceDetail slug={route} onHome={goHome} t={t} language={language} /><Contact t={t} /></>
+  return <>{progressBar}<Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} onHome={goHome} language={language} setLanguage={changeLanguage} t={t} activeSection={activeSection} /><main><Hero t={t} /><Research t={t} /><Experience t={t} onOpenExperience={openExperience} /><Projects t={t} /><About t={t} /></main><Contact t={t} /></>
 }

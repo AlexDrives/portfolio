@@ -5,7 +5,7 @@ function Mark() {
   return <svg className="mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M7 7v17c0 3 2 5 5 5 4 0 7-3 7-8V7" /><path d="M17 29 29 7" /><path d="M22 7h7v7" /><circle cx="29" cy="27" r="2" /></svg>
 }
 
-export default function Navbar({ menuOpen, setMenuOpen, onHome, language, setLanguage, t }) {
+export default function Navbar({ menuOpen, setMenuOpen, onHome, language, setLanguage, t, activeSection }) {
   const inlineLinks = [['research', t.nav.research], ['experience', t.nav.experience], ['projects', t.nav.projects], ['about', t.nav.about], ['contact', t.nav.contact]]
   const drawerLinks = [['home', t.nav.home], ...inlineLinks]
   const go = (id) => {
@@ -25,9 +25,15 @@ export default function Navbar({ menuOpen, setMenuOpen, onHome, language, setLan
         </button>
       </div>
       <nav className="nav-center" aria-label={t.nav.navigate}>
-        {inlineLinks.map(([id, label]) => (
-          <button key={id} type="button" onClick={() => go(id)}>{label}</button>
-        ))}
+        {inlineLinks.map(([id, label]) => {
+          const isActive = activeSection === id
+          return (
+            <button key={id} type="button" className={isActive ? 'active' : ''} onClick={() => go(id)}>
+              {isActive && <motion.span layoutId="nav-active-pill" className="nav-active-pill" transition={{ type: 'spring', stiffness: 420, damping: 34 }} />}
+              <span className="nav-link-label">{label}</span>
+            </button>
+          )
+        })}
       </nav>
       <div className="nav-right">
         <a className="cv-pill" href={t.cvUrl} target="_blank" rel="noopener noreferrer">{t.nav.cv} <span>↗</span></a>

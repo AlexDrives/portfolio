@@ -3,6 +3,12 @@ import ExperienceDiagram from './ExperienceDiagram'
 
 const ease = [0.16, 1, 0.3, 1]
 
+function trackSpotlight(e) {
+  const rect = e.currentTarget.getBoundingClientRect()
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+  e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`)
+}
+
 export default function ExperienceDetail({ slug, onHome, t, language }) {
   const normalizedSlug = slug === 'cocreate' ? 'sharetronic' : slug
   const detail = t.detail[normalizedSlug] || t.detail[slug]
@@ -203,8 +209,9 @@ export default function ExperienceDetail({ slug, onHome, t, language }) {
           <div className="detail-modules-grid">
             {detail.sections.map((section, i) => (
               <motion.article
-                className="detail-module-card"
+                className="detail-module-card spotlight-card"
                 key={section.label}
+                onMouseMove={trackSpotlight}
                 initial={{ y: 18, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, amount: .15 }}
