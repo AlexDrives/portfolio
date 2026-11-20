@@ -72,6 +72,21 @@ export default function ExperienceDetail({ slug, onHome, t, language }) {
             <p className="detail-exec-summary">{detail.summary}</p>
           </motion.header>
 
+          {detail.confidentialityNotice && (
+            <motion.aside
+              className="confidentiality-callout"
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: .55, delay: .08, ease }}
+            >
+              <div className="confidentiality-head">
+                <span className="section-kicker">{detail.confidentialityNotice.kicker}</span>
+                <span className="confidentiality-badge">{detail.confidentialityNotice.badge}</span>
+              </div>
+              <p>{detail.confidentialityNotice.body}</p>
+            </motion.aside>
+          )}
+
           {detail.facts && (
             <motion.div
               className="detail-facts-grid"

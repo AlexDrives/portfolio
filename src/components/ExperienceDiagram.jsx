@@ -7,20 +7,20 @@ export default function ExperienceDiagram({ slug, language }) {
       <div className="arch-card">
         <div className="arch-card-head">
           <span className="section-kicker">
-            {zh ? '系统架构图 / 闭环终态推理' : 'System Architecture / Closed-Loop Terminal-State Reasoning'}
+            {zh ? '高层级研究框架示意 / 细节已脱敏' : 'High-Level Conceptual Overview / Internal Details Redacted'}
           </span>
           <span className="arch-caption">
             {zh
-              ? '将视觉资产标准化、Port–Mate 约束编译与物理引擎演化解耦并闭环检验'
-              : 'Decoupling Real2Sim asset standardization, Port–Mate SE(3) solving, and physics-rollout verification'}
+              ? '持续研发与论文冲刺中：仅展示公开层面研究范式，内部实现与指标暂不披露'
+              : 'Active R&D & paper in preparation — conceptual workflow only; proprietary details withheld'}
           </span>
         </div>
         <div className="arch-svg-scroll">
           <svg
             className="arch-svg"
-            viewBox="0 0 1060 356"
+            viewBox="0 0 1060 278"
             role="img"
-            aria-label={zh ? 'ABB Real2Sim 与 Port-Mate 终态推理架构图' : 'ABB Real2Sim and Port-Mate terminal-state reasoning architecture'}
+            aria-label={zh ? 'ABB 环境推理高层级概念示意图' : 'ABB environment reasoning high-level conceptual schematic'}
           >
             <defs>
               <marker id="abb-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -31,162 +31,101 @@ export default function ExperienceDiagram({ slug, language }) {
               </marker>
             </defs>
 
-            {/* Subtle background lane bands */}
-            <rect x="14" y="14" width="1032" height="122" rx="6" fill="#f8fafc" stroke="#e4e4e7" />
-            <text x="30" y="36" fontSize="10" fontWeight="600" letterSpacing="0.08em" fill="#64748b">
-              {zh ? 'TRACK A · REAL2SIM 资产物理标准化与功能端口构建' : 'TRACK A · REAL2SIM ASSET STANDARDIZATION & PORT AUTHORING'}
+            <rect x="14" y="14" width="1032" height="250" rx="6" fill="#fafafa" stroke="#e4e4e7" />
+            <text x="30" y="38" fontSize="10" fontWeight="600" letterSpacing="0.08em" fill="#64748b">
+              {zh ? 'CONCEPTUAL RESEARCH LOOP · 仅展示高层研究链路（具体模块与实验数据保密）' : 'CONCEPTUAL RESEARCH LOOP · HIGH-LEVEL PARADIGM (IMPLEMENTATION DETAILS WITHHELD)'}
             </text>
 
-            <rect x="14" y="152" width="1032" height="188" rx="6" fill="#fafafa" stroke="#e4e4e7" />
-            <text x="30" y="174" fontSize="10" fontWeight="600" letterSpacing="0.08em" fill="#52525b">
-              {zh ? 'TRACK B · 受限语言规划、闭式 SE(3) 求解与物理演化裁决' : 'TRACK B · CONSTRAINED PLANNING, CLOSED-FORM SE(3) SOLVING & PHYSICS ROLLOUT'}
-            </text>
-
-            {/* Track A Nodes */}
-            <g transform="translate(30, 50)">
-              <rect width="215" height="68" rx="4" fill="#ffffff" stroke="#d4d4d8" />
-              <text x="14" y="22" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
-                {zh ? '01 · 单目照片 / 扫描输入' : '01 · Photo / Scan Inputs'}
+            <g transform="translate(30, 62)">
+              <rect width="218" height="106" rx="4" fill="#ffffff" stroke="#d4d4d8" />
+              <text x="14" y="26" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
+                {zh ? '01 · 视觉观测与自然语言指令' : '01 · Visual & Language Inputs'}
               </text>
-              <text x="14" y="41" fontSize="10.5" fill="#52525b">
-                {zh ? '单目照片 + NL · 实扫网格' : 'Single Photo + NL · Scanned USD'}
+              <text x="14" y="49" fontSize="10.5" fill="#52525b">
+                {zh ? '环境视觉观测与物体几何信息' : 'Visual observations & scene context'}
               </text>
-              <text x="14" y="57" fontSize="10" fill="#71717a">
-                Port-Ready Real2Sim / Blender
+              <text x="14" y="68" fontSize="10.5" fill="#52525b">
+                {zh ? '自然语言任务描述与交互目标' : 'Natural-language task instructions'}
+              </text>
+              <text x="14" y="90" fontSize="9.5" fill="#71717a">
+                {zh ? 'Real2Sim 资产与场景构建入口' : 'Entry point for Real2Sim construction'}
               </text>
             </g>
 
-            <line x1="245" y1="84" x2="281" y2="84" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
+            <line x1="248" y1="115" x2="280" y2="115" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
 
-            <g transform="translate(285, 50)">
-              <rect width="245" height="68" rx="4" fill="#ffffff" stroke="#d4d4d8" />
-              <text x="14" y="22" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
-                {zh ? '02 · 同源建模与解析凸分解' : '02 · Co-Authored Ports & Convex Gate'}
+            <g transform="translate(284, 62)">
+              <rect width="232" height="106" rx="4" fill="#ffffff" stroke="#0e7490" strokeWidth="1.3" />
+              <text x="14" y="26" fontSize="11.5" fontWeight="600" fill="#0e7490">
+                {zh ? '02 · Port–Mate 结构化场景表征' : '02 · Port–Mate Scene Representation'}
               </text>
-              <text x="14" y="41" fontSize="10.5" fill="#52525b">
-                {zh ? '四视图视觉自检 · 端口引导防封孔分解' : '4-View VLM Check · Hole-Preserving Hulls'}
+              <text x="14" y="49" fontSize="10.5" fill="#3f3f46">
+                {zh ? '借鉴 CAD 装配与可供性概念' : 'Inspired by CAD assembly & affordances'}
               </text>
-              <text x="14" y="57" fontSize="10" fill="#71717a">
-                {zh ? '视觉 / 碰撞双几何端口校验' : 'Dual Visual + Collision Verification'}
+              <text x="14" y="68" fontSize="10.5" fill="#52525b">
+                {zh ? '将功能部件与语义转化为几何约束' : 'Maps functional parts to constraints'}
+              </text>
+              <text x="14" y="90" fontSize="9.5" fill="#71717a">
+                {zh ? '支持组合式与自然语言场景编辑' : 'Compositional scene editing interface'}
               </text>
             </g>
 
-            <line x1="530" y1="84" x2="566" y2="84" stroke="#0e7490" strokeWidth="1.3" markerEnd="url(#abb-arrow-cyan)" />
+            <line x1="516" y1="115" x2="548" y2="115" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
 
-            <g transform="translate(570, 50)">
-              <rect width="255" height="68" rx="4" fill="#ffffff" stroke="#0e7490" strokeWidth="1.3" />
-              <text x="14" y="22" fontSize="11.5" fontWeight="600" fill="#0e7490">
-                {zh ? '03 · 功能端口抽象（Port Manifest）' : '03 · Typed Functional Ports'}
+            <g transform="translate(552, 62)">
+              <rect width="236" height="106" rx="4" fill="#ffffff" stroke="#18181b" strokeWidth="1.3" />
+              <text x="14" y="26" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
+                {zh ? '03 · 推理智能体与约束校验' : '03 · LLM/VLM + Geometric Solver'}
               </text>
-              <text x="14" y="41" fontSize="10.5" fill="#3f3f46">
-                {zh ? 'RGB-D 平面拟合 + 自动支撑面发现' : 'RGB-D Plane Fit + Support Discovery'}
+              <text x="14" y="49" fontSize="10.5" fill="#3f3f46">
+                {zh ? '任务分解、关系推理与约束核验' : 'Task decomposition & relation reasoning'}
               </text>
-              <text x="14" y="57" fontSize="10" fill="#52525b">
-                {zh ? '局部变换 L_b, L_i · 支撑域与语义标签' : 'Local Frames L_b, L_i · Bounds & Tags'}
+              <text x="14" y="68" fontSize="10.5" fill="#52525b">
+                {zh ? '自动生成物理就绪的仿真场景配置' : 'Physics-ready geometry & asset setup'}
+              </text>
+              <text x="14" y="90" fontSize="9.5" fill="#71717a">
+                {zh ? '具体求解架构与提示策略保密中' : 'Solver internals redacted (ongoing)'}
               </text>
             </g>
 
-            <g transform="translate(855, 50)">
-              <rect width="175" height="68" rx="4" fill="#f0fdfa" stroke="#99f6e4" />
-              <text x="14" y="24" fontSize="11" fontWeight="600" fill="#0f766e">
-                {zh ? '支撑面自动发现基线' : 'Support Discovery Probe'}
+            <line x1="788" y1="115" x2="820" y2="115" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
+
+            <g transform="translate(824, 62)">
+              <rect width="206" height="106" rx="4" fill="#0a0a0a" />
+              <text x="14" y="26" fontSize="11.5" fontWeight="600" fill="#ffffff">
+                {zh ? '04 · 物理仿真与 Critic 反馈' : '04 · Simulation & Critic Loop'}
               </text>
-              <text x="14" y="43" fontSize="10.5" fill="#115e59">
-                {zh ? '精度 0.979 · 面积召回 0.796' : 'Precision 0.979 · Recall 0.796'}
+              <text x="14" y="49" fontSize="10.5" fill="#d4d4d8">
+                {zh ? '物理可行性与场景一致性检验' : 'Physical feasibility & consistency'}
               </text>
-              <text x="14" y="58" fontSize="9.5" fill="#0f766e">
-                {zh ? '独立几何 Oracle 交叉评测' : 'Independent Geometric Oracle'}
+              <text x="14" y="68" fontSize="10" fill="#a1a1aa">
+                {zh ? '服务下游强化学习与机器人操作' : 'Downstream RL & manipulation'}
+              </text>
+              <text x="14" y="90" fontSize="9.5" fill="#67e8f9">
+                {zh ? 'Simulation Harness 持续开发中' : 'Simulation harness in active R&D'}
               </text>
             </g>
 
-            {/* Vertical feed from Port Manifest into Constrained Agent & Solver */}
-            <path d="M 697 118 L 697 190" fill="none" stroke="#0e7490" strokeWidth="1.3" strokeDasharray="4 3" markerEnd="url(#abb-arrow-cyan)" />
-
-            {/* Track B Nodes */}
-            <g transform="translate(30, 192)">
-              <rect width="176" height="84" rx="4" fill="#ffffff" stroke="#d4d4d8" />
-              <text x="13" y="23" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
-                {zh ? '初始场景 S₀ + 指令 L' : 'Scene S₀ + Task L'}
-              </text>
-              <text x="13" y="43" fontSize="10.5" fill="#52525b">
-                {zh ? '“拉开第二层抽屉，' : '“Open drawer #2 and'}
-              </text>
-              <text x="13" y="58" fontSize="10.5" fill="#52525b">
-                {zh ? '把杯子稳放入内”' : 'place the cup inside”'}
-              </text>
-              <text x="13" y="74" fontSize="9.5" fill="#71717a">
-                {zh ? '无手工坐标输入' : 'Zero manual coordinates'}
-              </text>
-            </g>
-
-            <line x1="206" y1="234" x2="236" y2="234" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
-
-            <g transform="translate(240, 192)">
-              <rect width="218" height="84" rx="4" fill="#ffffff" stroke="#18181b" strokeWidth="1.3" />
-              <text x="13" y="23" fontSize="11.5" fontWeight="600" fill="#0a0a0a">
-                {zh ? 'LangGraph 受限规划智能体' : 'LangGraph Constrained Agent'}
-              </text>
-              <text x="13" y="43" fontSize="10.5" fill="#3f3f46">
-                {zh ? '仅在兼容端口目录中选配关系' : 'Selects over compatible Port catalog'}
-              </text>
-              <text x="13" y="59" fontSize="10" fill="#52525b">
-                on · seat · insert · in · free_in · joint
-              </text>
-              <text x="13" y="74" fontSize="9.5" fill="#71717a">
-                {zh ? '输出 DAG 依赖图与终态 YAML' : 'Compiles dependency DAG & YAML'}
-              </text>
-            </g>
-
-            <line x1="458" y1="234" x2="488" y2="234" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
-
-            <g transform="translate(492, 192)">
-              <rect width="232" height="84" rx="4" fill="#ffffff" stroke="#0e7490" strokeWidth="1.3" />
-              <text x="13" y="23" fontSize="11.5" fontWeight="600" fill="#0e7490">
-                {zh ? '闭式 SE(3) 与关节耦合求解器' : 'Closed-Form SE(3) & Joint Solver'}
-              </text>
-              <text x="13" y="44" fontSize="11" fontFamily="Georgia, Cambria, serif" fill="#0a0a0a">
-                Tᵢ = T_b · L_b · M(θ) · Lᵢ⁻¹
-              </text>
-              <text x="13" y="61" fontSize="10" fill="#52525b">
-                {zh ? '生成操作终态候选 S_op' : 'Synthesizes operational state S_op'}
-              </text>
-              <text x="13" y="75" fontSize="9.5" fill="#71717a">
-                {zh ? '静态几何与包围盒预检' : 'Static clearance & bounds precheck'}
-              </text>
-            </g>
-
-            <line x1="724" y1="234" x2="754" y2="234" stroke="#18181b" strokeWidth="1.3" markerEnd="url(#abb-arrow)" />
-
-            <g transform="translate(758, 192)">
-              <rect width="272" height="84" rx="4" fill="#0a0a0a" />
-              <text x="14" y="23" fontSize="11.5" fontWeight="600" fill="#ffffff">
-                {zh ? 'OmniGibson 物理演化与 Critic 验收' : 'OmniGibson Rollout & Critic Gate'}
-              </text>
-              <text x="14" y="43" fontSize="10.5" fill="#d4d4d8">
-                {zh ? 'S_op → 重力 / 碰撞 / 关节演化 → S_evo' : 'S_op → Gravity / Contact / Joints → S_evo'}
-              </text>
-              <text x="14" y="59" fontSize="10" fill="#a1a1aa">
-                {zh ? '检验深度、同轴度、接触稳定与关系保持' : 'Checks depth, alignment, stability & retention'}
-              </text>
-              <text x="14" y="74" fontSize="9.5" fill="#67e8f9">
-                {zh ? '89 / 89 物理验收用例通过' : '89 / 89 physical acceptance tests passed'}
-              </text>
-            </g>
-
-            {/* Feedback loop from Critic back to LangGraph Agent */}
+            {/* Feedback loop */}
             <path
-              d="M 894 276 L 894 316 L 349 316 L 349 280"
+              d="M 927 168 L 927 222 L 670 222 L 670 172"
               fill="none"
               stroke="#0e7490"
               strokeWidth="1.25"
               strokeDasharray="5 3"
               markerEnd="url(#abb-arrow-cyan)"
             />
-            <rect x="462" y="305" width="316" height="20" rx="10" fill="#fafafa" />
-            <text x="620" y="319" textAnchor="middle" fontSize="10" fontWeight="500" fill="#0e7490">
+            <rect x="698" y="211" width="212" height="20" rx="10" fill="#fafafa" />
+            <text x="804" y="225" textAnchor="middle" fontSize="10" fontWeight="500" fill="#0e7490">
+              {zh ? 'Critic 迭代反馈物理可行性与一致性' : 'Critic iterative feasibility feedback'}
+            </text>
+
+            {/* Redacted note pill on bottom-left */}
+            <rect x="30" y="206" width="445" height="32" rx="4" fill="#ffffff" stroke="#d4d4d8" strokeDasharray="3 3" />
+            <text x="44" y="226" fontSize="10.5" fill="#52525b">
               {zh
-                ? '结构化失败归因反馈（接地偏差 / 端口失配 / 碰撞倾倒）'
-                : 'Structured Critic Feedback (grounding · port mismatch · collision / tip-over)'}
+                ? '🔒 正在研发与论文冲刺阶段 · 内部代码架构、公式推导及基准指标暂不公开'
+                : '🔒 Ongoing R&D & manuscript preparation — internals & benchmarks withheld'}
             </text>
           </svg>
         </div>
