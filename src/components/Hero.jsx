@@ -45,6 +45,7 @@ export default function Hero({ t }) {
             <button className="button button-outline" onClick={() => scroll('experience')}>{t.hero.secondaryCta} <span>↓</span></button>
             <a className="hero-text-link" href={t.cvUrl} target="_blank" rel="noopener noreferrer">{t.hero.cvCta} <span>↗</span></a>
             <a className="hero-text-link" href="https://github.com/AlexDrives" target="_blank" rel="noopener noreferrer">{t.hero.githubCta} <span>↗</span></a>
+            <a className="hero-text-link" href="https://alexdrives.github.io/literally-me/" target="_blank" rel="noopener noreferrer">{t.hero.easterEggCta} <span>↗</span></a>
           </motion.div>
         </div>
         <motion.aside className="hero-ledger" {...rise(.48)}>

@@ -31,6 +31,7 @@ export const content = {
       secondaryCta: 'Experience',
       cvCta: 'CV (PDF)',
       githubCta: 'GitHub',
+      easterEggCta: 'Easter Egg',
       highlights: [
         ['Current', 'Environment Reasoning R&D Intern · ABB Robotics'],
         ['Recent', 'Ant LingBot Embodied AI Challenge · 6th / 1,855 Prelim · Finals Excellence Award'],
@@ -154,7 +155,7 @@ export const content = {
       scores: 'GRE Q170 · TOEFL 107',
       beyondLabel: 'Off the Clock',
       beyondText:
-        'I play guitar in my spare time and listen to Stevie Ray Vaughan, Pink Floyd, and King Crimson. Also into cars (hence AlexDrives), sci-fi cinema (Blade Runner, 2001: A Space Odyssey), and games like Dark Souls, Civilization, and Texas Hold’em.',
+        'Lately into hardware hackathons and currently prepping for an upcoming one. Outside the lab: basketball (huge Cade Cunningham fan), playing guitar (Stevie Ray Vaughan, Pink Floyd, King Crimson), cars (hence AlexDrives), sci-fi films like Blade Runner and 2001: A Space Odyssey, Dark Souls, Civilization, and Texas Hold’em.',
       easterEggLabel: 'Easter Egg · literally-me (ASCII & 3D)',
       portraitAlt: 'Portrait of Junhao Liu',
     },
@@ -385,6 +386,7 @@ export const content = {
       secondaryCta: '实习经历',
       cvCta: '简历 (PDF)',
       githubCta: 'GitHub',
+      easterEggCta: '彩蛋主页',
       highlights: [
         ['当前经历', 'ABB Robotics · 环境推理研发实习生'],
         ['近期竞赛', '蚂蚁灵波具身大模型挑战赛 · 初赛 6 / 1,855 · 48h 真机决赛优胜奖'],
@@ -508,7 +510,7 @@ export const content = {
       scores: 'GRE Q170 · TOEFL 107',
       beyondLabel: '代码之外',
       beyondText:
-        '平时喜欢弹吉他，常听 Stevie Ray Vaughan、Pink Floyd 和 King Crimson；从小喜欢车（AlexDrives 的由来），也常看《银翼杀手》《2001 太空漫游》这类科幻片，玩魂系、《文明》和德州扑克。',
+        '最近很上头硬件黑客松，正在准备下一场。平时爱打篮球（Cade Cunningham 球迷），也弹吉他，常听 Stevie Ray Vaughan、Pink Floyd 和 King Crimson；从小喜欢车（AlexDrives 的由来），喜欢《银翼杀手》《2001 太空漫游》，也玩魂系、《文明》和德州扑克。',
       easterEggLabel: '彩蛋主页 · literally-me（ASCII / 3D）',
       portraitAlt: '刘俊豪个人照片',
     },
